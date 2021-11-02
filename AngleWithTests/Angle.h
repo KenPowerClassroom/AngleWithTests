@@ -1,7 +1,9 @@
 #pragma once
 #include<numbers> // pi
 
+//Note to students: do not change any code in this file above the line of asterixes ****
 class Angle {
+
 private:
 	static double radianToDegree(double radians) {
 		return (radians / TWO_PI) * DEGREES_IN_CIRCLE;
@@ -14,42 +16,21 @@ public:
 	static const long DEGREES_IN_CIRCLE = 360;
 	static const double PI;
 	static const double TWO_PI;
+//**************************************************************************************
+//Note to students: do not change ANY code  file above this line
+//You are welcome to change or add code below this line.
 
+private:
+
+public:
 	static Angle fromDegrees(double degrees) {
-		double wrappedDeg = std::fmod(degrees, DEGREES_IN_CIRCLE);
-		if (wrappedDeg < 0)
-			wrappedDeg += DEGREES_IN_CIRCLE;
-		return Angle{ wrappedDeg };
-	}
-
-	static Angle fromRadians(double radians) {
-		return fromDegrees( radianToDegree(radians) );
+		//Hint: a degree can only have range 0 to 359.9999... 
+		return Angle{ degrees };
 	}
 
 	double degrees() {
 		return degree;
 	}
-
-	double radians() {
-		return TWO_PI * (degree / DEGREES_IN_CIRCLE);
-	}
-
-	bool operator>(const Angle& other) {
-		return degree > other.degree;
-	}
-	
-	bool operator<(const Angle& other) {
-		return degree < other.degree;
-	}
-
-	Angle operator+(const Angle& other) {
-		return fromDegrees(degree + other.degree);
-	}
-
-	Angle operator-(const Angle& other) {
-		return fromDegrees(degree - other.degree);
-	}
-
 };
 
 const double Angle::PI = std::numbers::pi;
