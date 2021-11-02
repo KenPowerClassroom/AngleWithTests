@@ -2,7 +2,6 @@
 #include "../AngleWithTests/Angle.h"
 
 double epsilon = 0.0000001;
-
 TEST(AngleTest, CanCreateWithDegrees) {
 	Angle a = Angle::fromDegrees(45);
 
@@ -14,7 +13,6 @@ TEST(AngleTest, WrapsAoundWhenGreaterThan360) {
 
 	EXPECT_DOUBLE_EQ(0, a.degrees());
 	EXPECT_DOUBLE_EQ(5, b.degrees());
-
 }
 
 TEST(AngleTest, WrapsAoundWhenLessThan0) {
@@ -40,7 +38,6 @@ TEST(AngleTest, GetRadiansValue) {
 	EXPECT_NEAR(Angle::PI / 3, a.radians(), epsilon);
 	EXPECT_NEAR(Angle::PI / 3, b.radians(), epsilon);
 }
-
 
 TEST(AngleTest, CompareGreater) {
 	Angle a = Angle::fromRadians(45);
