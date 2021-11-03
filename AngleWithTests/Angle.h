@@ -9,7 +9,7 @@ private:
 		return (radians / TWO_PI) * DEGREES_IN_CIRCLE;
 	}
 
-	Angle(double degree):degree(degree) {} // make this private so users forced to use factory methods
+	explicit Angle(double degree):degree(degree) {} // make this private so users forced to use factory methods
 	const double degree;				// value objects should not be modifiable
 
 public:
